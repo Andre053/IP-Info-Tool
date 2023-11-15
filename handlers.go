@@ -41,6 +41,7 @@ func getIpsFromUser() ([]net.IP, error) {
 	}
 	return ips, nil
 }
+
 func handleIpGeo(c *cache) error {
 	ips, err := getIpsFromUser()
 	if err != nil {
@@ -110,5 +111,4 @@ func handleHTTPRequest(ip net.IP) (*Response, error) {
 		return data, err
 	}
 	return data, nil
-
 }

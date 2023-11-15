@@ -10,7 +10,7 @@ func printIntro() {
 }
 
 func printOptions() {
-	fmt.Printf("\n1 - Geo Lookup\t\t2 - ASN Lookup\t\t3 - Distance Lookup\t\t4 - Exit\n\n")
+	fmt.Printf("\n1 - Geo Lookup\t\t2 - ASN Lookup\t\t3 - Distance Lookup\t\t4 - Exit\n\nSelect an option: ")
 }
 
 func run() {
@@ -19,7 +19,6 @@ func run() {
 	printIntro()
 	for {
 		printOptions()
-		fmt.Printf("Select an option: ")
 		_, err := fmt.Scanln(&choice)
 
 		success, err := handleChoice(choice, cache)
@@ -44,7 +43,7 @@ func handleChoice(choice string, c *cache) (bool, error) {
 		fmt.Println("Handling distance lookup")
 		return true, nil
 	case "4": // exit
-		return false, errors.New("Quit program")
+		return false, errors.New("Exit")
 	default:
 		return false, errors.New("Unsupported choice")
 	}

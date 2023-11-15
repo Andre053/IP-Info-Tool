@@ -5,7 +5,7 @@ A Go CLI for retrieving information about IP addresses.
 ## Usage
 
 Install the code:
-`go install github.com/andre053/ip-tool`
+`go install github.com/andre053/ip-info-tool`
 
 Get your own API key from https://ipinfo.io/signup
 
