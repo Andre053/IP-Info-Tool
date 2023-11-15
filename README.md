@@ -1,4 +1,4 @@
-# IP Info Lookup Tool!
+# IP Info Lookup Tool
 
 A Go CLI for retrieving information about IP addresses.
 
@@ -17,8 +17,7 @@ Utilize make to interact with the code:
 `make run` will build and run the ipinfo executable.  
 `make clean` will clear the console, run go clean, and remove the executable.  
 
-Add the program to your path:
-`export PATH=$PATH:<path to ipinfo>`
+Add the program to your path:   `export PATH=$PATH:<path to ipinfo>`  
 
 ## Features
 
@@ -30,3 +29,4 @@ Add the program to your path:
 
 - Testing suite, utilizing loopback interfaces
 - Distance lookup: Calculating distance between IP addresses
+- Simple lookups: Domain to IP, IP to domain
