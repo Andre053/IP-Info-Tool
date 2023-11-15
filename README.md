@@ -1,6 +1,8 @@
-# IP Info Lookup Tool
+# IP Info Lookup Tool v1
 
 A Go CLI for retrieving information about IP addresses.
+
+Does not utilize a library for CLI.
 
 ## Usage
 
