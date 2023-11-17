@@ -22,6 +22,40 @@ type Response struct {
 	Timezone string `json:"timezone"`
 }
 
+type MissingJsonValuesError struct {
+	Line int
+	Col  int
+}
+
+func (e *MissingJsonValuesError) Error() string {
+	return fmt.Sprintf("%d:%d: data error", e.Line, e.Col)
+}
+
+func (e *MissingJsonValuesError) Is(tgt error) bool {
+	target, ok := tgt.(*MissingJsonValuesError)
+	if !ok {
+		return false
+	}
+	return e.Line == target.Line && e.Col == target.Col
+}
+
+type NoHttpData struct {
+	Line int
+	Col  int
+}
+
+func (e *NoHttpData) Error() string {
+	return fmt.Sprintf("%d:%d: data error", e.Line, e.Col)
+}
+
+func (e *NoHttpData) Is(tgt error) bool {
+	target, ok := tgt.(*NoHttpData)
+	if !ok {
+		return false
+	}
+	return e.Line == target.Line && e.Col == target.Col
+}
+
 type ipIds struct {
 	ip       net.IP
 	hostname string
@@ -83,6 +117,7 @@ func mustStrToFloat(s string) float64 {
 func degToRad(d float64) float64 {
 	return d * math.Pi / 180
 }
+
 func harversineDist(x1, y1, x2, y2 float64) float64 {
 	worldRad := float64(6371000)
 	lat1 := degToRad(x1)
